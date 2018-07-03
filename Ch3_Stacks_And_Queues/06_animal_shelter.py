@@ -23,7 +23,7 @@ class AnimalShelter:
     def dequeue_any(self):
         cats_timestamp = self.cats.queue[0].timestamp if not self.cats.empty() else 0
         dogs_timestamp = self.dogs.queue[0].timestamp if not self.dogs.empty() else 0
-        return self.cats.get() if cats_timestamp > dogs_timestamp else self.dogs.get()
+        return self.cats.get() if cats_timestamp < dogs_timestamp else self.dogs.get()
 
     def dequeue_dog(self):
         return self.dogs.get()
@@ -70,7 +70,7 @@ if __name__ == '__main__':
 # Dogs: 3
 # Cats: 2 4
 # Dogs: 3 5
-# Cats: 2 4
+# Cats: 4
+# Dogs: 3 5
+# Cats: 4
 # Dogs: 5
-# Cats: 2 4
-# Dogs:
