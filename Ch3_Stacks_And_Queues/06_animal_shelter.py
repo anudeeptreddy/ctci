@@ -27,10 +27,10 @@ class AnimalShelter:
         return self.cats.get() if cats_timestamp < dogs_timestamp else self.dogs.get()
 
     def dequeue_dog(self):
-        return self.dogs.get()
+        return self.dogs.get() if not self.dogs.empty() else None
 
     def dequeue_cat(self):
-        return self.cats.get()
+        return self.cats.get() if not self.cats.empty() else None
 
 
 class Animal:
